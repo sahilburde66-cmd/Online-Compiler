@@ -4,7 +4,7 @@ import { Box, Spinner, Center } from "@chakra-ui/react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ErrorBoundary from "../components/ErrorBoundary";
-
+import Adsense from '../components/Adsense';
 // Lazy load pages for better performance
 const Home = lazy(() => import("../pages/Home"));
 const AboutUs = lazy(() => import("../pages/AboutUs"));
@@ -38,6 +38,10 @@ function App() {
               </Routes>
             </Suspense>
           </Box>
+          {/* SAFE GLOBAL AD (below content, above footer) */}
+          <div style={{ maxWidth: "1100px", margin: "40px auto" }}>
+            <Adsense slot="8351730639" />
+          </div>
           <Footer />
         </Box>
       </Router>
