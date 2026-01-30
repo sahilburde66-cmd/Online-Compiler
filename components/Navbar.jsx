@@ -39,6 +39,15 @@ const Navbar = () => {
           </li>
           <li>
             <Link 
+              to="/about" 
+              className={`navbar-link ${isActive("/about") ? "active" : ""}`}
+              aria-current={isActive("/about") ? "page" : undefined}
+            >
+              About Us
+            </Link>
+          </li>
+          <li>
+            <Link 
               to="/privacy-policy" 
               className={`navbar-link ${isActive("/privacy-policy") ? "active" : ""}`}
               aria-current={isActive("/privacy-policy") ? "page" : undefined}

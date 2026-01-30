@@ -7,6 +7,7 @@ import ErrorBoundary from "../components/ErrorBoundary";
 
 // Lazy load pages for better performance
 const Home = lazy(() => import("../pages/Home"));
+const AboutUs = lazy(() => import("../pages/AboutUs"));
 const PrivacyPolicy = lazy(() => import("../pages/PrivacyPolicy"));
 
 // Loading component
@@ -32,6 +33,7 @@ function App() {
             <Suspense fallback={<LoadingFallback />}>
               <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/about" element={<AboutUs />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               </Routes>
             </Suspense>

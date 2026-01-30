@@ -15,6 +15,9 @@ const Footer = () => {
             © 2026 All Rights Reserved
           </div>
           <div className="footer-links">
+            <Link to="/about" className="footer-link">
+              About Us
+            </Link>
             <Link to="/privacy-policy" className="footer-link">
               Privacy Policy
             </Link>
