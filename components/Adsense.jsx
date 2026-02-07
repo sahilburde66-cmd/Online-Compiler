@@ -1,21 +1,34 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Adsense = ({ slot, style = {} }) => {
   const adRef = useRef(null);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    // Only run if the ref exists and the ad hasn't been loaded yet
-    if (adRef.current && adRef.current.innerHTML.trim() === "") {
-      try {
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
-      } catch (err) {
-        console.error("Adsense error:", err);
+    if (!adRef.current) return;
+
+    // Use ResizeObserver to wait for a valid width
+    const observer = new ResizeObserver((entries) => {
+      for (let entry of entries) {
+        if (entry.contentRect.width > 0 && !isLoaded) {
+          try {
+            if (window.adsbygoogle && adRef.current.innerHTML.trim() === "") {
+              (window.adsbygoogle = window.adsbygoogle || []).push({});
+              setIsLoaded(true); // Prevent multiple pushes
+            }
+          } catch (err) {
+            console.error("Adsense error:", err);
+          }
+        }
       }
-    }
-  }, []);
+    });
+
+    observer.observe(adRef.current);
+    return () => observer.disconnect();
+  }, [isLoaded]);
 
   return (
-    <div style={{ width: "100%", textAlign: "center", overflow: "hidden", minHeight: "90px", ...style }}>
+    <div style={{ width: "100%", textAlign: "center", minHeight: "90px", ...style }}>
       <ins
         ref={adRef}
         className="adsbygoogle"
