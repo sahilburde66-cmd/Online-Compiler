@@ -5,26 +5,30 @@ const Adsense = ({ slot, style = {} }) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    if (!adRef.current) return;
+    if (!adRef.current || isLoaded) return;
 
-    // Use ResizeObserver to wait for a valid width
-    const observer = new ResizeObserver((entries) => {
-      for (let entry of entries) {
-        if (entry.contentRect.width > 0 && !isLoaded) {
-          try {
-            if (window.adsbygoogle && adRef.current.innerHTML.trim() === "") {
-              (window.adsbygoogle = window.adsbygoogle || []).push({});
-              setIsLoaded(true); // Prevent multiple pushes
-            }
-          } catch (err) {
-            console.error("Adsense error:", err);
+    const loadAd = () => {
+      try {
+        // Check if adsbygoogle is available
+        if (typeof window !== "undefined" && window.adsbygoogle) {
+          // Only push if the ad container is empty
+          if (adRef.current && adRef.current.innerHTML.trim() === "") {
+            (window.adsbygoogle = window.adsbygoogle || []).push({});
+            setIsLoaded(true);
           }
+        } else {
+          // Retry if adsbygoogle isn't loaded yet
+          setTimeout(loadAd, 300);
         }
+      } catch (err) {
+        console.error("Adsense error:", err);
       }
-    });
+    };
 
-    observer.observe(adRef.current);
-    return () => observer.disconnect();
+    // Small delay to ensure DOM is ready
+    const timer = setTimeout(loadAd, 100);
+
+    return () => clearTimeout(timer);
   }, [isLoaded]);
 
   return (
