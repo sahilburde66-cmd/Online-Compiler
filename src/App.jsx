@@ -42,7 +42,7 @@ function App() {
           </Box>
           {/* SAFE GLOBAL AD (below content, above footer) */}
           <div style={{ maxWidth: "1100px", margin: "40px auto" }}>
-            <Adsense slot="8351730639" />
+            <Adsense slot="9694103017" />
           </div>
           <Footer />
         </Box>
