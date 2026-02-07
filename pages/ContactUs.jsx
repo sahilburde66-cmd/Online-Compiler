@@ -219,10 +219,10 @@ const ContactUs = () => {
             <div className="social-section">
               <h3>Follow Us</h3>
               <div className="social-links">
-                <a href="" className="social-link" aria-label="Twitter">
+                {/* <a href="" className="social-link" aria-label="Twitter">
                   <span className="social-icon">🐦</span>
                   Twitter
-                </a>
+                </a> */}
                 <a href="https://github.com/sahilburde66-cmd/" className="social-link" aria-label="GitHub">
                   <span className="social-icon">💻</span>
                   GitHub
