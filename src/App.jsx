@@ -8,6 +8,7 @@ import Adsense from '../components/Adsense';
 // Lazy load pages for better performance
 const Home = lazy(() => import("../pages/Home"));
 const AboutUs = lazy(() => import("../pages/AboutUs"));
+const ContactUs = lazy(() => import("../pages/ContactUs"));
 const PrivacyPolicy = lazy(() => import("../pages/PrivacyPolicy"));
 
 // Loading component
@@ -34,6 +35,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<AboutUs />} />
+                <Route path="/contact" element={<ContactUs />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               </Routes>
             </Suspense>

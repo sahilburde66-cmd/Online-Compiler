@@ -144,15 +144,15 @@ const PrivacyPolicy = () => {
             our data practices, please contact us at:
           </p>
           <p className="contact-info">
-            Email: privacy@codecompiler.com
+            Email: sahilburde66@gmail.com
             <br />
-            Website: www.codecompiler.com
+            Website: www.sahbud.in
           </p>
         </section>
 
         <div className="privacy-footer-note">
           <p>
-            By using Online Code Compiler, you acknowledge that you have read
+            By using Online Compiler, you acknowledge that you have read
             and understood this Privacy Policy and agree to its terms.
           </p>
         </div>

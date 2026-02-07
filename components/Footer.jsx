@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="footer-content">
           <div className="footer-brand">
             <span className="logo-bracket">{"<"}</span>
-            CodeCompiler
+            Compiler
             <span className="logo-bracket">{"/>"}</span>
           </div>
           <div className="footer-copyright">
@@ -17,6 +17,9 @@ const Footer = () => {
           <div className="footer-links">
             <Link to="/about" className="footer-link">
               About Us
+            </Link>
+            <Link to="/contact" className="footer-link">
+              Contact
             </Link>
             <Link to="/privacy-policy" className="footer-link">
               Privacy Policy

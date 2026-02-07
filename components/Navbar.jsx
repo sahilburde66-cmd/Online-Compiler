@@ -15,7 +15,7 @@ const Navbar = () => {
           aria-label="CodeCompiler home"
         >
           <span className="logo-bracket" aria-hidden="true">{"<"}</span>
-          CodeCompiler
+          Compiler
           <span className="logo-bracket" aria-hidden="true">{"/>"}</span>
         </Link>
         <ul className="navbar-menu">
@@ -44,6 +44,15 @@ const Navbar = () => {
               aria-current={isActive("/about") ? "page" : undefined}
             >
               About Us
+            </Link>
+          </li>
+          <li>
+            <Link 
+              to="/contact" 
+              className={`navbar-link ${isActive("/contact") ? "active" : ""}`}
+              aria-current={isActive("/contact") ? "page" : undefined}
+            >
+              Contact
             </Link>
           </li>
           <li>
