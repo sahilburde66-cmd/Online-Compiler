@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ErrorBoundary from "../components/ErrorBoundary";
 import Adsense from "../components/Adsense";
+
 // Lazy load pages for better performance
 const Home = lazy(() => import("../pages/Home"));
 const AboutUs = lazy(() => import("../pages/AboutUs"));
